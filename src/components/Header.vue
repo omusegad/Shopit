@@ -1,5 +1,9 @@
-<script>
+<script setup>
 import { RouterLink, RouterView } from 'vue-router'
+
+import { useCartStore } from "@/stores/cart";
+const cartStore = useCartStore();
+// console.log(cartStore.totalCartItem)
 
 </script>
 <template>
@@ -24,10 +28,11 @@ import { RouterLink, RouterView } from 'vue-router'
                         <RouterLink to="/about-us">About Us</RouterLink>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    <div>
+                        <RouterLink to="/shopping-cart" class="btn btn-outline-success cart-bx">
+                            Cart ({{cartStore.totalCartItem}})
+                        </RouterLink>
+                    </div>
                     </div>
                 </div>
                 </nav>

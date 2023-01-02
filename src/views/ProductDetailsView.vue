@@ -8,7 +8,7 @@ console.log(cartStore.items);
 <template>
     <div class="row">
         <div class="col-lg-6">
-            <img :src="cartStore.item.img" />
+            <img :src="product.img" />
         </div>
         <div class="col-lg-6">
             <h3>{{ product.title }}</h3>

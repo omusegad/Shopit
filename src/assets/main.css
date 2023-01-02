@@ -5,4 +5,12 @@
 }
 .card-img h5 {
   white-space: nowrap;
+}
+
+.cart-bx {
+  color: red;
+}
+
+.prod-img img {
+  width: 16%;
 }/*# sourceMappingURL=main.css.map */
