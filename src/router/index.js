@@ -26,6 +26,11 @@ const router = createRouter({
       name: 'about-us',
       component: ProductDetailsView
     },
+    {
+      path: '/help-center',
+      name: 'help-center',
+      component: ProductDetailsView
+    },
   ]
 })
 

@@ -9,7 +9,7 @@
         .then(res => res.json())
         .then(categories => {
             product_categories.value = categories
-            console.log( product_categories.value)
+           // console.log( product_categories.value)
         })
     } 
     catch(e){
@@ -19,9 +19,13 @@
 
 </script>
 <template>
-    <ul>
-        <li v-for="cat in product_categories" :key="cat.id">
-            <a href="">{{ cat }}</a>
-        </li>
-    </ul>
+    <div class="card">
+    <div class="card-body">
+        <ul class="menu-bx">
+            <li v-for="cat in product_categories" :key="cat.id">
+                <a href="">{{ cat }}</a>
+            </li>
+        </ul>
+    </div>
+    </div>
 </template>

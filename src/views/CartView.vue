@@ -8,30 +8,27 @@ console.log(cartStore.items);
   <main class="container">
     <div class="row" v-if="cartStore.totalCartItem">
         <h4>Cart ( {{ cartStore.totalCartItem }} )</h4>
-
       <div class="col-9">
         <div class="table-responsive">
-          <table class="table table-hover">
+          <table class="table text-nowrap">
             <thead>
               <tr>
-                <th></th>
-                <th></th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Items</th>
-                <th>Remove</th>
+                <th scope="col"></th>
+                <th scope="col">Product</th>
+                <th scope="col">Price</th>
+                <th scope="col" class="quant-bx text-center">Quantity</th>
+                <th scope="col">Remove</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="({ item }, i) in cartStore.items" :key="item.id">
-                <td></td>
+              <tr v-for="({ product }, i) in cartStore.items" :key="product.id">
                 <td>
                   <div class="prod-img">
-                    <img :src="item.image" />
+                    <img :src="product.image" />
                   </div>
                 </td>
-                <td class="pt-2 text-start">{{ item.title }}</td>
-                <td>Ksh {{ item.price }}</td>
+                <td class="pt-2 text-start">{{ product.title }}</td>
+                <td>Ksh {{ product.price }}</td>
                 <td class="text-center">
                   <div class="p-3">
                     <div
@@ -42,14 +39,16 @@ console.log(cartStore.items);
                         value="-"
                         class="button-minus border icon-shape icon-sm mx-1"
                       @click="removeQuantity"/>
-                      <input
+                    
+                      <input 
                         type="number"
                         step="1"
                         max="100"
                         min="0"
                         v-model="cartStore.items[i].quantity"
                         name="quantity"
-                        class="quantity-field text-center w-25"
+                        placeholder="{{cartStore.items[i].quantity}}"
+                        class="quantity-field text-center quantity-bx"
                       />
                       <input
                         type="button"
@@ -59,23 +58,26 @@ console.log(cartStore.items);
                     </div>
                   </div>
                 </td>
-                <td>
-                  <div class="col-5 text-end">
-                    <button class="btn btn-outline-danger" @click="cartStore.removeItemFromCart(item)"> x </button>
-                  </div>
+                <td class="text-center">
+                <button class="btn btn-outline-danger mt-3" @click="cartStore.removeProductFromCart(product)"> x </button>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-      <div class="col-3 pt-5">
-        <div class="card">
+      
+      <div class="col-3 pt-4">
+        <div class="card total-bx">
           <div class="card-body">
+            <h4>
+                Cart Sammary
+            </h4>
+            <hr/>
             <ul>
               <ul>
-                <li>subTotal : Ksh {{ cartStore.subTotal }}</li>
-                <li>Tax : Ksh {{ cartStore.taxTotal }}</li>
+                <li>subTotal : Ksh {{ cartStore.subTotal.toFixed(2) }}</li>
+                <li>Tax : Ksh {{ cartStore.taxTotal.toFixed(2) }}</li>
                 <li>Total : Ksh {{ cartStore.total }}</li>
               </ul>
             </ul>
@@ -83,6 +85,7 @@ console.log(cartStore.items);
           </div>
         </div>
       </div>
+
     </div>
     <div class="row" v-else>
       <div class="col-12">

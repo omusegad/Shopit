@@ -18,7 +18,8 @@ const getProducts = async () => {
     console.log(error.message);
   }
 };
-getProducts();
+
+onMounted(()=> getProducts())
 
 onErrorCaptured(() => {
   errorMessage.value = "Opps sorry, Something went wrong";
@@ -45,7 +46,7 @@ onErrorCaptured(() => {
             Ksh {{ product.price }}
             </h6>
           <div class="rating">Rating: {{ product.rating.rate }}</div>
-          <button class="mt-3 btn btn-outline-primary" @click="cartStore.addToCart(product)">Add to Cart</button>
+          <button class="mt-3 btn btn-outline-primary" @click="cartStore.addProductToCart(product)">Add to Cart</button>
         </div>
       </div>
     </div>

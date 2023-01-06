@@ -3,7 +3,6 @@ import { RouterLink, RouterView } from 'vue-router'
 
 import { useCartStore } from "@/stores/cart";
 const cartStore = useCartStore();
-// console.log(cartStore.totalCartItem)
 
 </script>
 <template>
@@ -11,7 +10,7 @@ const cartStore = useCartStore();
         <div class="row">
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Commerce Shop</a>
+                    <a class="navbar-brand" href="#">ShopIt</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
@@ -22,15 +21,20 @@ const cartStore = useCartStore();
                         <RouterLink to="/">Home</RouterLink>
                         </li>
                         <li class="nav-item">
-                        <RouterLink to="/about">About</RouterLink>
+                        <RouterLink to="/about-us">About</RouterLink>
                         </li>
                         <li class="nav-item">
-                        <RouterLink to="/about-us">About Us</RouterLink>
+                        <RouterLink to="/help-center">Help Center</RouterLink>
                         </li>
                     </ul>
-                    <div>
-                        <RouterLink to="/shopping-cart" class="btn btn-outline-success cart-bx">
-                            Cart ({{cartStore.totalCartItem}})
+                    <div class="cart-cont">
+                        <RouterLink to="/shopping-cart" class="btn cart-bx text-black">
+                            <i id="cart-ico" class="fa fa-shopping-cart fa-1x" aria-hidden="true">
+                                <span class="item-count-bx">
+                                {{cartStore.totalCartItem}}
+                            </span>
+                             </i>
+                            Cart
                         </RouterLink>
                     </div>
                     </div>
