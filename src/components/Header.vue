@@ -21,7 +21,7 @@ const cartStore = useCartStore();
                         <RouterLink to="/">Home</RouterLink>
                         </li>
                         <li class="nav-item">
-                        <RouterLink to="/about-us">About</RouterLink>
+                        <RouterLink to="/note-app">Note App</RouterLink>
                         </li>
                         <li class="nav-item">
                         <RouterLink to="/help-center">Help Center</RouterLink>

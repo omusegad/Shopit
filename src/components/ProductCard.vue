@@ -4,7 +4,6 @@ import ProductsAPI from "@/services/ProductsAPI";
 import { ref, onMounted, computed, onErrorCaptured } from "vue";
 import { useCartStore } from "@/stores/cart";
 
-
 const products = ref([]);
 const errorMessage = ref(null);
 const cartStore  = useCartStore();
